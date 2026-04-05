@@ -7,7 +7,7 @@ const questions = [
       "white tank top white jacket",
       "white tank no jacket"
     ],
-    correct: 3
+    correct: 2
   },
   {
     question: "Who do you love more?",
@@ -88,6 +88,7 @@ function selectAnswer(button, index) {
   if (index === correctIndex) {
     button.classList.add("correct");
     score++;
+    launchConfetti(); // 🎉 FIX ADDED HERE
   } else {
     button.classList.add("wrong");
     buttons[correctIndex].classList.add("correct");
@@ -131,6 +132,7 @@ function restartQuiz() {
   document.getElementById("result-screen").classList.remove("active");
   document.getElementById("start-screen").classList.add("active");
 }
+
 function launchConfetti() {
   for (let i = 0; i < 30; i++) {
     const confetti = document.createElement("div");
