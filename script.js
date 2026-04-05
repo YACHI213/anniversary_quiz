@@ -131,3 +131,21 @@ function restartQuiz() {
   document.getElementById("result-screen").classList.remove("active");
   document.getElementById("start-screen").classList.add("active");
 }
+function launchConfetti() {
+  for (let i = 0; i < 30; i++) {
+    const confetti = document.createElement("div");
+    confetti.innerText = "🎉";
+
+    confetti.style.position = "fixed";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = "-10px";
+    confetti.style.fontSize = "20px";
+    confetti.style.animation = "fall 2s linear";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 2000);
+  }
+}
