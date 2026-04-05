@@ -61,3 +61,21 @@ button {
   margin-top: 20px;
   font-style: italic;
 }
+.hearts span {
+  position: absolute;
+  display: block;
+  color: red;
+  font-size: 20px;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
