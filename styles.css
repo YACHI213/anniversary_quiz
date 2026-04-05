@@ -6,26 +6,52 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* 💖 HEARTS BACKGROUND */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* IMPORTANT */
+  pointer-events: none;
+}
+
+.hearts span {
+  position: absolute;
+  display: block;
+  color: red;
+  font-size: 20px;
+  animation: float 10s linear infinite;
+  opacity: 0.8;
+}
+
+/* 📦 MAIN CONTAINER */
 .container {
   width: 90%;
   max-width: 400px;
 }
 
+/* 🧊 CARD DESIGN */
 .card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
   padding: 25px;
   border-radius: 20px;
   text-align: center;
   display: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .card.active {
   display: block;
 }
 
+/* 🔘 BUTTONS */
 button {
   margin-top: 15px;
   padding: 12px;
@@ -34,13 +60,21 @@ button {
   cursor: pointer;
   width: 100%;
   font-size: 16px;
+  transition: all 0.2s ease;
 }
 
+/* hover effect */
+button:hover {
+  transform: scale(1.03);
+}
+
+/* answer buttons */
 #answers button {
   margin: 8px 0;
   background: white;
 }
 
+/* correct / wrong states */
 .correct {
   background: #4CAF50 !important;
   color: white;
@@ -51,37 +85,35 @@ button {
   color: white;
 }
 
+/* next button */
 #next-btn {
   display: none;
   background: black;
   color: white;
 }
 
+/* 💌 love text */
 .love {
   margin-top: 20px;
   font-style: italic;
 }
-.hearts span {
-  position: absolute;
-  display: block;
-  color: red;
-  font-size: 20px;
-  animation: float 10s linear infinite;
-}
 
+/* 💖 FLOATING HEART ANIMATION */
 @keyframes float {
   0% {
-    transform: translateY(100vh);
+    transform: translateY(100vh) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh);
+    transform: translateY(-10vh) scale(1.5);
     opacity: 0;
   }
 }
+
+/* 🎉 CONFETTI FALL */
 @keyframes fall {
   to {
-    transform: translateY(100vh);
+    transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
 }
